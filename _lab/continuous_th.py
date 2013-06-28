@@ -5,7 +5,7 @@ def work():
   """thread worker function"""
   for i in range(5):
     print "This is %s => seq %s" % (threading.currentThread().getName(), i)
-    time.sleep(1)
+    time.sleep(0.1)
   return
 
 if __name__ == "__main__":
