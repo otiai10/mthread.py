@@ -18,6 +18,7 @@ if __name__ == "__main__":
   while 1:
     if threading.active_count() is 1:
       print "<< All Sub Threads Dead >>"
+      time.sleep(1/60)# reduce loop as possible
       break
  
   print "***** END OF MAIN *****" 
