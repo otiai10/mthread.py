@@ -10,21 +10,15 @@ def work():
 
 if __name__ == "__main__":
 
-  threads = []
   for i in range(10):
     t = threading.Thread(target=work)
-    threads.append(t)
     t.start()
 
   # thread health check and clean up
-  while 1:
-    for t in threads:
-      if not t.is_alive():
-        print "%s is dead" % t.getName()
-        threads.remove(t)
-    if len(threads) is 0:
-      print "<< All Dead >>"
+  while threading.enumerate():
+    if threading.active_count() is 1:
+      print "<< All Sub Threads Dead >>"
       break
  
   print "***** END OF MAIN *****" 
-  print threads
+  print threading.enumerate()# this is main
