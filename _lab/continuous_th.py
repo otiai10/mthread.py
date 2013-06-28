@@ -15,7 +15,7 @@ if __name__ == "__main__":
     t.start()
 
   # thread health check and clean up
-  while threading.enumerate():
+  while 1:
     if threading.active_count() is 1:
       print "<< All Sub Threads Dead >>"
       break
