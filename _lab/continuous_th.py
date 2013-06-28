@@ -18,16 +18,13 @@ if __name__ == "__main__":
 
   # thread health check and clean up
   while 1:
-    all_dead = True
     for t in threads:
-      if t.is_alive():
-        all_dead = False
-      else:
+      if not t.is_alive():
         print "%s is dead" % t.getName()
         threads.remove(t)
-    if all_dead:
+    if len(threads) is 0:
       print "<< All Dead >>"
       break
  
   print "***** END OF MAIN *****" 
-  print threads # expected to be [], but "sometimes" it contains dead thread!!
+  print threads
